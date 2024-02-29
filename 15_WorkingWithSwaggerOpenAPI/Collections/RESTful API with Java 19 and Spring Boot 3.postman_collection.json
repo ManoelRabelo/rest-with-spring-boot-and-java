@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f7161720-32cb-4864-bed4-c9219bd04143",
+		"_postman_id": "aba89b22-0721-4d74-a286-1afb942158a6",
 		"name": "RESTful API with Java 19 and Spring Boot 3",
 		"description": "Some description about your API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -21,6 +21,17 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3001",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"url": {
@@ -181,11 +192,16 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"_links\": {\n    \"laborum_88\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"pariatur_53\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+									"raw": "{\n\t\"id\": 14,\n\t\"firstName\": \"Vitor\",\n\t\"lastName\": \"Oliveira\",\n\t\"address\": \"taguatinga\",\n\t\"gender\": \"Male\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -425,11 +441,21 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:8080",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"_links\": {\n    \"laborum_88\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"pariatur_53\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+									"raw": "{\n  \"firstName\": \"Vitor\",\n  \"lastName\": \"Oliveira\",\n  \"address\": \"Aguas Claras\",\n  \"gender\": \"Male\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -626,10 +652,27 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Origin",
+										"value": "https://erudio.com.br",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:8080",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/person/v1/:id",
+									"raw": "{{baseUrl}}/api/person/v1/1",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -637,14 +680,7 @@
 										"api",
 										"person",
 										"v1",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<long>",
-											"description": "(Required) "
-										}
+										"1"
 									]
 								},
 								"description": "Finds a Person"
@@ -846,9 +882,15 @@
 							"name": "Deletes a Person",
 							"request": {
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{baseUrl}}/api/person/v1/:id",
+									"raw": "{{baseUrl}}/api/person/v1/14",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -856,14 +898,7 @@
 										"api",
 										"person",
 										"v1",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<long>",
-											"description": "(Required) "
-										}
+										"14"
 									]
 								},
 								"description": "Deletes a Person by passing in a JSON, XML or YML representation of the person!"
@@ -1039,6 +1074,11 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"url": {
@@ -1050,6 +1090,13 @@
 										"api",
 										"book",
 										"v1"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
 									]
 								},
 								"description": "Finds all Books"
@@ -1199,11 +1246,16 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"author\": \"<string>\",\n  \"price\": \"<double>\",\n  \"title\": \"<string>\",\n  \"launchDate\": \"<dateTime>\",\n  \"_links\": {\n    \"aute_bd9\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+									"raw": "{\n\t\"id\": 4,\n\t\"author\": \"Eminenen\",\n\t\"price\": 199.99,\n\t\"title\": \"8 miles\",\n\t\"launchDate\": \"2023-02-10T03:00:00.000+00:00\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1443,11 +1495,16 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<long>\",\n  \"author\": \"<string>\",\n  \"price\": \"<double>\",\n  \"title\": \"<string>\",\n  \"launchDate\": \"<dateTime>\",\n  \"_links\": {\n    \"aute_bd9\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+									"raw": "{\n\t\"author\": \"Eminen\",\n\t\"price\": 299.99,\n\t\"title\": \"8 miles\",\n\t\"launchDate\": \"2023-02-10T03:00:00.000+00:00\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -1644,10 +1701,15 @@
 									{
 										"key": "Accept",
 										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/book/v1/:id",
+									"raw": "{{baseUrl}}/api/book/v1/1",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1655,14 +1717,7 @@
 										"api",
 										"book",
 										"v1",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<long>",
-											"description": "(Required) "
-										}
+										"1"
 									]
 								},
 								"description": "Finds one Book"
@@ -1864,9 +1919,15 @@
 							"name": "Deletes one Book",
 							"request": {
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accesToken}}",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{baseUrl}}/api/book/v1/:id",
+									"raw": "{{baseUrl}}/api/book/v1/4",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -1874,14 +1935,7 @@
 										"api",
 										"book",
 										"v1",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "<long>",
-											"description": "(Required) "
-										}
+										"4"
 									]
 								},
 								"description": "Deletes a new Book by passing in a JSON, XML or YML representation of the Book!"
@@ -2038,6 +2092,207 @@
 									"body": ""
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Authenticates a user and returns a token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseCode.code >= 200 && responseCode.code <=299){\r",
+									"\tvar jasonData = JSON.parse(responseBody);\r",
+									"\r",
+									"\tpostman.setEnvironmentVariable('accesToken', jasonData.accessToken);\r",
+									"\tpostman.setEnvironmentVariable('refreshToken', jasonData.refreshToken);\r",
+									"} "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signin",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/signin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "Refresh token for authenticated user and returns a token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(responseCode.code >= 200 && responseCode.code <=299){\r",
+									"\tvar jasonData = JSON.parse(responseBody);\r",
+									"\r",
+									"\tpostman.setEnvironmentVariable('accesToken', jasonData.accessToken);\r",
+									"\tpostman.setEnvironmentVariable('refreshToken', jasonData.refreshToken);\r",
+									"} "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{refreshToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/refresh/{{username}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"refresh",
+								"{{username}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/signin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
 						}
 					]
 				}
