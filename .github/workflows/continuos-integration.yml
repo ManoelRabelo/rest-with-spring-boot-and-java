@@ -45,7 +45,14 @@ jobs:
       working-directory: ./24_ContinuousIntegrationWithAWS
       run: docker compose build
 
+    - name: Tag, and push image to Amazon ECR
+      run:
+        docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
+        docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.IMAGE_REPO_URL }}:latest
 
+        docker push ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
+        docker push ${{ secrets.IMAGE_REPO_URL }}:latest
+        
     - name: Push to Docker Hub Container Registry
       run:
         docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:${{ github.run_id }}
