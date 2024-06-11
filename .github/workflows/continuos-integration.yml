@@ -48,9 +48,11 @@ jobs:
     - name: Tag, and push image to Amazon ECR
       run:
         docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
+        
         docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot-erudio:latest ${{ secrets.IMAGE_REPO_URL }}:latest
 
         docker push ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
+        
         docker push ${{ secrets.IMAGE_REPO_URL }}:latest
         
     - name: Push to Docker Hub Container Registry
