@@ -14,7 +14,7 @@ public class OpenApiConfig {
     OpenAPI customOpenApi() {
 		return new OpenAPI()
 				.info(new Info()
-						.title("RESTful API with Java 19 and Spring Boot 3")
+						.title("RESTful API with Java 19 and Spring Boot 3 - Foo Bar")
 						.version("v1")
 						.description("Some description about your API")
 						.termsOfService("https://github.com/ManoelRabelo/rest-with-spring-boot-and-java-erudio")
